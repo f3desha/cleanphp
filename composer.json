@@ -1,0 +1,20 @@
+{
+    "name": "f3desha/simplephp",
+    "autoload": {
+        "psr-4": {
+            "CleanPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Oleksandr Kuzmenko",
+            "email": "alex@autoeasy.com"
+        }
+    ],
+    "require-dev": {
+        "vimeo/psalm": "^5.22"
+    },
+  "require": {
+    "ext-mysqli": "*"
+  }
+}
