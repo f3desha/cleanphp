@@ -23,7 +23,7 @@ describe('InvoicingService', function() {
             $service->generateInvoices();
         });
 
-        it('should return and Invoice for each uninvoiced Order', function() {
+        it('should return an Invoice for each uninvoiced Order', function() {
             $orders = [(new Order())->setTotal(400.00)];
             $invoices = [(new Invoice())->setTotal(400.00)];
 
@@ -34,11 +34,10 @@ describe('InvoicingService', function() {
                 $this->repository->reveal(),
                 $this->factory->reveal()
             );
+            $invoices = $service->generateInvoices();
 
-            $results = $service->generateInvoices();
-
-            expect($results)->to->be->a('array');
-            expect($results)->to->have->length(count($orders));
+            expect($invoices)->to->be->a('array');
+            expect($invoices)->to->have->length(count($orders));
         });
     });
 });

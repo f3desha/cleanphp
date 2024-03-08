@@ -4,7 +4,7 @@ namespace CleanPhp\Domain\Entity;
 
 use DateTime;
 
-class Invoice {
+class Invoice extends AbstractEntity {
     /**
      * @var Order $order
      */
@@ -16,7 +16,7 @@ class Invoice {
     /**
      * @var float $total
      */
-    protected float $total;
+    protected float $total = 0.0;
 
     /**
      * @return Order

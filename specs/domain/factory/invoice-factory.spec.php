@@ -7,12 +7,10 @@ describe('InvoiceFactory', function() {
     describe('->createFromOrder()', function() {
         it('should return an invoice object', function() {
             $order = new Order();
+
             $factory = new InvoiceFactory();
             $invoice = $factory->createFromOrder($order);
-
-            expect($invoice)->to->be->instanceof(
-                'CleanPhp\Domain\Entity\Invoice'
-            );
+            expect($invoice)->to->be->a->instanceof('CleanPhp\Domain\Entity\Invoice');
         });
 
         it('should set the total of the order', function() {
@@ -21,7 +19,6 @@ describe('InvoiceFactory', function() {
 
             $factory = new InvoiceFactory();
             $invoice = $factory->createFromOrder($order);
-
             expect($invoice->getTotal())->to->equal(500.00);
         });
 
@@ -30,7 +27,6 @@ describe('InvoiceFactory', function() {
 
             $factory = new InvoiceFactory();
             $invoice = $factory->createFromOrder($order);
-
             expect($invoice->getOrder())->to->equal($order);
         });
 
@@ -39,8 +35,7 @@ describe('InvoiceFactory', function() {
 
             $factory = new InvoiceFactory();
             $invoice = $factory->createFromOrder($order);
-
-            expect($invoice->getInvoiceDate())->to->be->an->instanceof('DateTime');
+            expect($invoice->getInvoiceDate())->to->be->instanceof('DateTime');
         });
     });
 });

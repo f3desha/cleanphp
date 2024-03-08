@@ -2,7 +2,6 @@
 
 namespace CleanPhp\Domain\Service;
 
-use CleanPhp\Domain\Entity\Invoice;
 use CleanPhp\Domain\Factory\InvoiceFactory;
 use CleanPhp\Domain\Repository\OrderRepositoryInterface;
 
@@ -19,17 +18,11 @@ class InvoicingService {
     /**
      * @param OrderRepositoryInterface $orderRepository
      */
-    public function __construct(
-        OrderRepositoryInterface $orderRepository,
-        InvoiceFactory $invoiceFactory
-    ) {
+    public function __construct(OrderRepositoryInterface $orderRepository, InvoiceFactory $invoiceFactory) {
         $this->orderRepository = $orderRepository;
         $this->invoiceFactory = $invoiceFactory;
     }
 
-    /**
-     * @return Invoice[]
-     */
     public function generateInvoices(): array {
         $orders = $this->orderRepository->getUninvoicedOrders();
 
@@ -38,7 +31,6 @@ class InvoicingService {
         foreach ($orders as $order) {
             $invoices[] = $this->invoiceFactory->createFromOrder($order);
         }
-
         return $invoices;
     }
 

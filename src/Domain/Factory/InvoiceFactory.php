@@ -4,19 +4,14 @@ namespace CleanPhp\Domain\Factory;
 
 use CleanPhp\Domain\Entity\Invoice;
 use CleanPhp\Domain\Entity\Order;
+use DateTime;
 
 class InvoiceFactory {
-    /**
-     * @param Order $order
-     *
-     * @return Invoice
-     */
     public function createFromOrder(Order $order): Invoice {
         $invoice = new Invoice();
         $invoice->setOrder($order);
-        $invoice->setInvoiceDate(new \DateTime());
         $invoice->setTotal($order->getTotal());
-
+        $invoice->setInvoiceDate(new DateTime());
         return $invoice;
     }
 
