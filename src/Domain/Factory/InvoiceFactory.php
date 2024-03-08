@@ -6,6 +6,11 @@ use CleanPhp\Domain\Entity\Invoice;
 use CleanPhp\Domain\Entity\Order;
 
 class InvoiceFactory {
+    /**
+     * @param Order $order
+     *
+     * @return Invoice
+     */
     public function createFromOrder(Order $order): Invoice {
         $invoice = new Invoice();
         $invoice->setOrder($order);

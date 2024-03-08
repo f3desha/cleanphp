@@ -34,13 +34,13 @@ describe('InvoiceFactory', function() {
             expect($invoice->getOrder())->to->equal($order);
         });
 
-        it('should set the date of the Invoice', function() {
+        it('should set invoice object date in DateTime format', function() {
             $order = new Order();
 
             $factory = new InvoiceFactory();
             $invoice = $factory->createFromOrder($order);
 
-            expect($invoice->getInvoiceDate())->to->loosely->equal($invoice->getInvoiceDate());
+            expect($invoice->getInvoiceDate())->to->be->an->instanceof('DateTime');
         });
     });
 });
