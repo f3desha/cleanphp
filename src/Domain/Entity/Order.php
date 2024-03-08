@@ -18,7 +18,7 @@ class Order extends AbstractEntity {
     /**
      * @var float $total
      */
-    protected float $total;
+    protected float $total = 0.0;
 
     /**
      * @return Customer

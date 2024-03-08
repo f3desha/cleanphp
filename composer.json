@@ -11,11 +11,13 @@
             "email": "alex@autoeasy.com"
         }
     ],
-    "require-dev": {
-        "vimeo/psalm": "^5.22"
-    },
   "require": {
       "php": "^8.2",
       "ext-mysqli": "*"
+  },
+  "require-dev": {
+    "peridot-php/peridot": "^1.19",
+    "vimeo/psalm": "^4.30",
+    "peridot-php/leo": "^1.6"
   }
 }
